@@ -15,3 +15,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home2');
 Route::view('/{any}', 'home2');
+// e anche un secondo livello di rotta per il metodo show ad esempio
+Route::view('/{any}/{any1}', 'home2');
