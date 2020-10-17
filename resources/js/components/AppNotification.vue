@@ -45,12 +45,12 @@
                 this.getNotifications()
             }
 
-            /*Echo.private('App.User.' + User.id())
+            Echo.private('App.Models.User.' + User.id())
                 .notification((notification) => {
                     this.playSound()
                     this.unread.unshift(notification)
                     this.unreadCount++
-                });*/
+                });
         },
 
         methods:{

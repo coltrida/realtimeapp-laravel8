@@ -42,7 +42,7 @@
                         })
                 })
 
-                /*Echo.private('App.User.' + User.id())
+                Echo.private('App.Models.User.' + User.id())
                     .notification((notification) => {
                         this.content.unshift(notification.reply)
                     });
@@ -54,7 +54,7 @@
                                 this.content.splice(index,1)
                             }
                         }
-                    })*/
+                    })
             }
         }
     }
