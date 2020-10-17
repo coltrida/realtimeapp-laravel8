@@ -2438,27 +2438,27 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
-    /*EventBus.$on('newReply', () => {
-        this.replyCount++
+    var _this = this;
+
+    EventBus.$on('newReply', function () {
+      _this.replyCount++;
     });
-     Echo.private('App.User.' + User.id())
-        .notification((notification) => {
-            this.replyCount++
-        });
-     EventBus.$on('deleteReply', () => {
-        this.replyCount--
-    })
-     Echo.channel('deleteReplyChannel')
-        .listen('DeleteReplyEvent', (e) => {
-            this.replyCount--
-        })*/
+    Echo["private"]('App.Models.User.' + User.id()).notification(function (notification) {
+      _this.replyCount++;
+    });
+    EventBus.$on('deleteReply', function () {
+      _this.replyCount--;
+    });
+    Echo.channel('deleteReplyChannel').listen('DeleteReplyEvent', function (e) {
+      _this.replyCount--;
+    });
   },
   methods: {
     destroy: function destroy() {
-      var _this = this;
+      var _this2 = this;
 
       axios["delete"]("/api/question/".concat(this.data.slug)).then(function (res) {
-        return _this.$router.push('/forum');
+        return _this2.$router.push('/forum');
       })["catch"](function (error) {
         return console.log(error.response.data);
       });
@@ -124537,7 +124537,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var marked__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! marked */ "./node_modules/marked/lib/marked.js");
 /* harmony import */ var marked__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(marked__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _Helpers_User_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Helpers/User.js */ "./resources/js/Helpers/User.js");
-/* harmony import */ var _Router_router_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Router/router.js */ "./resources/js/Router/router.js");
+/* harmony import */ var _Helpers_Exception__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Helpers/Exception */ "./resources/js/Helpers/Exception.js");
+/* harmony import */ var _Router_router_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Router/router.js */ "./resources/js/Router/router.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -124555,6 +124556,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('vue-simplemde', vue_simple
 window.md = marked__WEBPACK_IMPORTED_MODULE_3___default.a;
 
 window.User = _Helpers_User_js__WEBPACK_IMPORTED_MODULE_4__["default"];
+
+window.Exception = _Helpers_Exception__WEBPACK_IMPORTED_MODULE_5__["default"];
 window.EventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
 /**
  * The following block of code may be used to automatically register your
@@ -124577,7 +124580,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('AppHome', __webpack_requir
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
   vuetify: new vuetify__WEBPACK_IMPORTED_MODULE_1___default.a(),
-  router: _Router_router_js__WEBPACK_IMPORTED_MODULE_5__["default"]
+  router: _Router_router_js__WEBPACK_IMPORTED_MODULE_6__["default"]
 });
 
 /***/ }),

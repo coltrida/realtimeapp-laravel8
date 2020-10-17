@@ -48,11 +48,11 @@
         },
 
         created(){
-            /*EventBus.$on('newReply', () => {
+            EventBus.$on('newReply', () => {
                 this.replyCount++
             });
 
-            Echo.private('App.User.' + User.id())
+            Echo.private('App.Models.User.' + User.id())
                 .notification((notification) => {
                     this.replyCount++
                 });
@@ -64,7 +64,7 @@
             Echo.channel('deleteReplyChannel')
                 .listen('DeleteReplyEvent', (e) => {
                     this.replyCount--
-                })*/
+                })
         },
 
         methods: {
